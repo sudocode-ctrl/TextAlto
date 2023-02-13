@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/TextAltor/static/css/main.e6c13ad2.css",
+    "main.js": "/TextAltor/static/js/main.b5e48b00.js",
+    "static/js/787.2f34e1fd.chunk.js": "/TextAltor/static/js/787.2f34e1fd.chunk.js",
+    "index.html": "/TextAltor/index.html",
+    "main.e6c13ad2.css.map": "/TextAltor/static/css/main.e6c13ad2.css.map",
+    "main.b5e48b00.js.map": "/TextAltor/static/js/main.b5e48b00.js.map",
+    "787.2f34e1fd.chunk.js.map": "/TextAltor/static/js/787.2f34e1fd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.b5e48b00.js"
+  ]
+}
