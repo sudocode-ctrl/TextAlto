@@ -5,11 +5,11 @@ import Alert from './components/Alert';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 
-// import {
-//   BrowserRouter as Router,
-//   Routes,
-//   Route
-// } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
 
 
 function App() {
@@ -25,12 +25,32 @@ function App() {
       }, 2000);
   }
   const [mode, setMode] = useState('light');//
- const toggleMode = ()=>{
+  const removeBodyClasses=()=>{
+    document.body.classList.remove('bg-light')
+    document.body.classList.remove('bg-dark')
+    document.body.classList.remove('bg-success')
+    document.body.classList.remove('bg-warning')
+    document.body.classList.remove('bg-danger')
+    document.body.classList.remove('bg-primary')
+  }
+const toggleTheme = (tmp)=>{
+  removeBodyClasses(); 
+  document.body.classList.add('bg-'+tmp)
+    setMode('dark');
+    document.body.style.backgroundColor = '#042743'
+    showAlert("Theme color is changed","success")
+    document.title = "TextAltor-Text modification platform";
+  }
+
+ const toggleMode = (cls)=>{
+  removeBodyClasses(); 
+  document.body.classList.add('bg-'+cls)
   if(mode==='light'){
     setMode('dark');
     document.body.style.backgroundColor = '#042743'
     showAlert("Dark mode has been enabled","success")
-    document.title = "TextAltor-Dark Mode";
+    document.title = "TextAltor-Text modification platform";
+    
   }
   else{
     setMode('light');
@@ -42,22 +62,22 @@ function App() {
 
   return (
     <>
-  {/* <Router> */}
-  <Navbar title="TextAltor" AboutText="About TextAltor" mode={mode} toggleMode={toggleMode}/>
+  <Router>
+  <Navbar title="TextAltor" AboutText="About TextAltor" mode={mode} toggleTheme={toggleTheme} toggleMode={toggleMode} />
   <Alert alert={alert}/>
   <div className="container my-3">
     
-      {/* <Routes>
+      <Routes>
         <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Enter your text" mode={mode}/>} />
         
-          <Route exact path="/about" element={<About />} />
+          <Route exact path="/about" element={<About mode={mode} />} />
           
         
-      </Routes> */}
-    <TextForm showAlert={showAlert} heading="Enter your text" mode={mode}/>
+      </Routes>
+    {/* <TextForm showAlert={showAlert} heading="Enter your text" mode={mode}/> */}
     
     </div>
-    {/* </Router> */}
+    </Router>
     </>
   );
 }
